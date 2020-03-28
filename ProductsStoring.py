@@ -232,7 +232,7 @@ def list_product():
     # print("\nid | product | quantity | price")
     # print("*"*50)
     print(Fore.WHITE+Style.BRIGHT+tabla)
-    for products in productos: #recorre la lista que está                                                      conformada por diccionarios
+    for products in productos: #recorre la lista que está conformada por diccionarios
         #for elem in products.keys():
         try:
             print(Fore.GREEN+Style.BRIGHT+"    | {:<9} {:<18} {:<12} S/ {:<3} |".format(
