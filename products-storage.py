@@ -28,3 +28,28 @@ for x in data:
         print(y,end=" ")
     print("\n")
 c.close()
+
+
+#Funcion actualizar
+try:
+    id=int(input("Id: "))
+    sql="""select id from product where id=?"""
+    c.execute(sql,(id,))
+    row=c.fetchall()
+    rowlen=len(row)
+    if rowlen == 0:
+        print("El producto no existe")
+    else:
+        nombre=input("Nombre: ")
+        precio=float(input("Precio: "))
+        cantidad=int(input("Cantidad: ")) 
+        tupla=(nombre,precio,cantidad,id)   
+        sql="""update product set descripcion=?, precio=?, cantidad=? where id=?"""
+        c.execute(sql,tupla)
+        con.commit()
+    for i in c.execute("Select * from product"):
+        print(i)
+
+    c.close()        
+except:
+    print("Ocurrio un error")
